@@ -1,71 +1,17 @@
 import React from "react";
 
-class CartItem extends React.Component{
-   
-// testing(){
-//     const promise = new Promise((resolve, reject)=>{
-//         setTimeout(()=>{
-//             resolve('done')
-//         }, 5000)
-//     })
-
-
-//     promise.then(()=>{
-//         // setState acts like a synchronous call
-//         this.setState({qty:this.state.qty +10})
-//         console.log('state' , this.state);
-//     })
-// }
-increaseQuantity=()=>{
-    // this.state.qty += 1;
-// console.log('this',this.state)
-
-//setState form 1
-
-    // this.setState({
-    //     qty:this.state.qty + 1
-    // })
-
-    //setState form 2-- if previous state required  use this
-
-    this.setState((prevState) =>{
-        return{
-            qty: prevState.qty + 1
-        }
-    })
-}
-
-    decreaseQuantity = () => {
-
-        const {qty} =this.state;
-        if(qty===0){
-            return
-        }
-        this.setState((prevState) => {
-            return {
-                qty: prevState.qty - 1
-            }
-        })
-    //     if(this.state.qty>0){
-    //     this.setState((prevState) => {
-    //         return {
-    //             qty: prevState.qty - 1
-    //         }
-    //     })
-    // }
-    }
-render(){
-    console.log('this.props',this.props)
-    const {price, title, qty} = this.props.product
+const CartItem = (props) => {
+    
+    const {price, title, qty} = props.product
     const {
         product,
         onIncreaseQuantity,
         onDecreaseQuantity,
         onDeleteProduct
-    }=this.props
+    }=props
     return(
         <div className="cart-item">
-            {this.props.jsx}
+            {props.jsx}
 
 
             <div className="left-block">
@@ -101,7 +47,7 @@ render(){
         </div>
     )
 }
-}
+
 
 const styles={
     image:{
