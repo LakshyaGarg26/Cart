@@ -57,7 +57,12 @@ increaseQuantity=()=>{
 render(){
     console.log('this.props',this.props)
     const {price, title, qty} = this.props.product
-    const {product,onIncreaseQuantity,onDecreaseQuantity}=this.props
+    const {
+        product,
+        onIncreaseQuantity,
+        onDecreaseQuantity,
+        onDeleteProduct
+    }=this.props
     return(
         <div className="cart-item">
             {this.props.jsx}
@@ -88,6 +93,7 @@ render(){
                     alt="delete" 
                     className="action-icons" 
                     src="https://cdn-icons-png.flaticon.com/512/1214/1214428.png " 
+                    onClick={()=> onDeleteProduct(product.id)}
                     />
                     </div>
             </div>
